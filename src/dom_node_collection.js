@@ -44,6 +44,24 @@ class DomNodeCollection {
     return this.attr(className, "");
   }
   
+  children() {
+    let childNodes = [];
+    
+    this.nodes.forEach( (node) => {
+      childNodes.push(node.children);
+    });
+    return new DomNodeCollection(childNodes);
+  }
+
+  parent() {
+    let parentNodes = [];
+    
+    this.nodes.forEach( (node) => {
+      parentNodes.push(node.parentNode);
+    });
+    return new DomNodeCollection(parentNodes);
+  }
+  
 }
 
 module.exports = DomNodeCollection;
