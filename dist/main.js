@@ -86,14 +86,25 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/dom_node_collection.js":
+/*!************************************!*\
+  !*** ./src/dom_node_collection.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class DomNodeCollection {\n  constructor(nodes) {\n    this.nodes = nodes;\n  }\n  \n  html(string) {\n    if (string == undefined) {\n      return this.nodes[0].innerHTML;\n    } else {\n      this.nodes.forEach( (node) => {\n        node.innerHTML = string;\n      });\n      return string;\n    }\n  }\n  \n  empty() {\n    this.html(\"\");\n  }\n  \n}\n\nmodule.exports = DomNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("window.$l = (arg) => {\n  \n};\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection.js */ \"./src/dom_node_collection.js\");\n\nwindow.$l = (selector) => {\n  let selected;\n  let selectedArr;\n  \n  \n  if (selector instanceof HTMLElement) {\n    selected = document.getElementsByTagName(selector.tagName);\n    selectedArr = Array.from(selected);\n  } else {\n    selected = document.querySelectorAll(`${selector}`);\n    selectedArr = Array.from(selected);\n  }\n  \n  return new DomNodeCollection(selectedArr);\n};\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
