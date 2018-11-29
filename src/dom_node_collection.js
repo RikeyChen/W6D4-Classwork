@@ -28,6 +28,14 @@ class DomNodeCollection {
     });
   }
   
+  attr (attrName, value) {
+    if(value == undefined){
+      return this.nodes[0].getAttribute(attrName);
+    } else {
+      return this.nodes[0].setAttribute(attrName, value);
+    }
+  }
+  
 }
 
 module.exports = DomNodeCollection;
