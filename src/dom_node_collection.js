@@ -18,6 +18,16 @@ class DomNodeCollection {
     this.html("");
   }
   
+  append(arg) {
+    // if (arg == this.constructor.name) {
+    // 
+    // }
+    
+    this.nodes.forEach( (node) => {
+      node.innerHTML = arg.outerHTML;
+    });
+  }
+  
 }
 
 module.exports = DomNodeCollection;
