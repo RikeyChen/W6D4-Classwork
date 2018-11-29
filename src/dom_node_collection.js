@@ -36,6 +36,14 @@ class DomNodeCollection {
     }
   }
   
+  addClass(newClass) {
+    return this.attr('class', newClass);
+  }
+
+  removeClass(className) {
+    return this.attr(className, "");
+  }
+  
 }
 
 module.exports = DomNodeCollection;
