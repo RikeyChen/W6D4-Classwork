@@ -74,6 +74,7 @@ class DomNodeCollection {
     this.nodes.forEach((node) => {
       node.innerHTML = '';
       node.outerHTML = '';
+      // this.nodes.delete(node);
     });
     this.nodes = [];
   }
